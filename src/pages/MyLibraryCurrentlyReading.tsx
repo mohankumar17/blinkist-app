@@ -141,7 +141,9 @@ function MyLibraryCurrentlyReading() {
 
     setReadStatus((prevStatusBooks: any) => {
       let newStatusList = [...prevStatusBooks];
-      newStatusList[id - 1].isRead = true;
+      newStatusList[id - 1].isRead
+        ? (newStatusList[id - 1].isRead = false)
+        : (newStatusList[id - 1].isRead = true);
       //console.log(newStatusList[id - 1]);
       return newStatusList;
     });
@@ -194,6 +196,7 @@ function MyLibraryCurrentlyReading() {
               authors={eachBook.authors}
               time_to_read={eachBook.time_to_read}
               tot_reads={eachBook.tot_reads}
+              isRead={eachBook.isRead}
               handleClick={(
                 event: React.MouseEvent<HTMLButtonElement>,
                 id: number

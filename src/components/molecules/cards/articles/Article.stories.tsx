@@ -14,6 +14,7 @@ export const ArticleCard = ({
   authors,
   time_to_read,
   tot_reads,
+  isRead,
   handleClick,
 }: ArticleTypes) => (
   <Article
@@ -23,6 +24,7 @@ export const ArticleCard = ({
     authors={authors}
     time_to_read={time_to_read}
     tot_reads={tot_reads}
+    isRead={isRead}
     handleClick={handleClick}
   ></Article>
 );

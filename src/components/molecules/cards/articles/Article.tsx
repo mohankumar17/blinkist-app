@@ -16,6 +16,7 @@ export type ArticleTypes = {
   authors: string;
   time_to_read: string;
   tot_reads: string;
+  isRead: boolean;
   handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void;
 };
 
@@ -26,6 +27,7 @@ function Article({
   authors,
   time_to_read,
   tot_reads,
+  isRead,
   handleClick,
 }: ArticleTypes) {
   return (
@@ -73,7 +75,7 @@ function Article({
 
       <CardActions>
         <Button size="small" onClick={(event) => handleClick(event, id)}>
-          Finished
+          {isRead ? "Read again" : "Finished"}
         </Button>
       </CardActions>
 
