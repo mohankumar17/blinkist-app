@@ -11,7 +11,9 @@ function Template() {
     <ThemeProvider theme={MUITheme}>
       <Stack spacing={3} direction="column">
         <Navbar></Navbar>
+
         <MyLibraryCurrentlyReading></MyLibraryCurrentlyReading>
+
         <FooterBar></FooterBar>
       </Stack>
     </ThemeProvider>

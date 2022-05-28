@@ -1,10 +1,10 @@
 import React from "react";
-import Menu from "./Menu";
+import Menus from "./Menus";
 
 export default {
-  title: "Molecules/Menu",
-  component: Menu,
+  title: "Molecules/Menus",
+  component: Menus,
 };
 
-export const ExploreMenu = () => <Menu type="explore"></Menu>;
-export const AvatarMenu = () => <Menu type="avatar"></Menu>;
+export const ExploreMenu = () => <Menus type="explore"></Menus>;
+export const AvatarMenu = () => <Menus type="avatar"></Menus>;

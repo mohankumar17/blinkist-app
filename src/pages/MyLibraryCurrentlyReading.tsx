@@ -41,18 +41,18 @@ let booksList = [
   {
     id: 2,
     src: img2,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
-    time_to_read: "13-minute read",
-    tot_reads: "1.9k reads",
+    title: "Beyond Entrepreneurship",
+    authors: "Jim Colloins & Bill Lazier",
+    time_to_read: "15-minute read",
+    tot_reads: "5.3k reads",
     isRead: false,
   },
 
   {
     id: 3,
     src: img3,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
+    title: "Doesn't Hurt to Ask",
+    authors: "Trey Gowdy",
     time_to_read: "13-minute read",
     tot_reads: "1.9k reads",
     isRead: false,
@@ -61,18 +61,18 @@ let booksList = [
   {
     id: 4,
     src: img4,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
-    time_to_read: "13-minute read",
-    tot_reads: "1.9k reads",
+    title: "The Fate of Food",
+    authors: "Amanda Little",
+    time_to_read: "12-minute read",
+    tot_reads: "16k reads",
     isRead: false,
   },
 
   {
     id: 5,
     src: img5,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
+    title: "Lives of the Stoics",
+    authors: "Ryan Holiday & Stephen Hansel",
     time_to_read: "13-minute read",
     tot_reads: "1.9k reads",
     isRead: false,
@@ -81,40 +81,40 @@ let booksList = [
   {
     id: 6,
     src: img6,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
-    time_to_read: "13-minute read",
-    tot_reads: "1.9k reads",
+    title: "Loving Your Business",
+    authors: "Debbie King",
+    time_to_read: "14-minute read",
+    tot_reads: "2.6k reads",
     isRead: false,
   },
 
   {
     id: 7,
     src: img7,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
-    time_to_read: "13-minute read",
-    tot_reads: "1.9k reads",
+    title: "The Lonely Century",
+    authors: "Noreena Hertz",
+    time_to_read: "15-minute read",
+    tot_reads: "3.9k reads",
     isRead: false,
   },
 
   {
     id: 8,
     src: img8,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
+    title: "Eat Better, Feel Better",
+    authors: "Giada De Laurentiis",
     time_to_read: "13-minute read",
-    tot_reads: "1.9k reads",
+    tot_reads: "1.8k reads",
     isRead: false,
   },
 
   {
     id: 9,
     src: img9,
-    title: "Bring Your Human to Work",
-    authors: "Erica Keswin",
-    time_to_read: "13-minute read",
-    tot_reads: "1.9k reads",
+    title: "Dropshipping",
+    authors: "James Moore",
+    time_to_read: "12-minute read",
+    tot_reads: "1.5k reads",
     isRead: false,
   },
 ];
@@ -179,6 +179,7 @@ function MyLibraryCurrentlyReading() {
       ></LargeTab>
 
       <Grid
+        sx={{ paddingTop: "10px" }}
         container
         justifyContent="flex-start"
         rowSpacing={2}

@@ -2,6 +2,10 @@
   padding: 30px 264px 0 264px;
 }
 
+.blur {
+  background-color: #9da3a673;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
