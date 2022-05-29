@@ -1,0 +1,100 @@
+import { Button, Stack, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import img2 from "./images/2.png";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
+import { SmallTab } from "../components/molecules/tabs/TabSmall.stories";
+
+function BookDetailView() {
+  const [tabStatus, setTabStatus] = useState<string>("snp");
+
+  useEffect(() => {
+    //console.log("Component Mounted/Updated");
+  }, [tabStatus]);
+
+  const handleTabStatus = (event: React.SyntheticEvent, newValue: string) => {
+    //setValue(newValue);
+    setTabStatus(newValue);
+  };
+
+  let bookDetail = {
+    synopsis:
+      "Beyond Entrepreneurship 2.0 (2020) updates Jim Collins and Bill Laziers essential 1992 business handbook, Beyond Entrepreneurship for the entrepreneurs, visionaries, and innovators of today. This new edition combines the timeless business advice and strategy of the original text, supplemented with cutting-edge insights and case studies pertinent to today’s business world.",
+    for_who: "Students, Business People",
+    about_author:
+      "James C Jim Collins is an American researcher, author, speaker and consultant focused on the subject of business management and company sustainability and growth",
+  };
+
+  let bookDetailText;
+  if (tabStatus === "snp") {
+    bookDetailText = bookDetail.synopsis;
+  } else if (tabStatus === "who") {
+    bookDetailText = bookDetail.for_who;
+  } else {
+    bookDetailText = bookDetail.about_author;
+  }
+
+  return (
+    <>
+      <Stack spacing={2} direction="column">
+        <Typography variant="body1">Get the key ideas from</Typography>
+        <Stack spacing={4} direction="row" justifyContent="space-between">
+          <Stack spacing={7} direction="column">
+            <Stack spacing={1} direction="column">
+              <Typography variant="h5">Beyond Entrepreneurship 2.0</Typography>
+              <Typography variant="subtitle2">
+                Turning Your Business into an Enduring Great Company
+              </Typography>
+              <Typography variant="body2">
+                By Jim Collins and Bill Lazier
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                <Stack direction="row" alignItems="center">
+                  <AccessTimeIcon></AccessTimeIcon>
+                  15-minute read
+                </Stack>
+              </Typography>
+            </Stack>
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              spacing={3}
+            >
+              <Button variant="outlined" sx={{ color: "#2CE080" }}>
+                <Typography variant="subtitle1">Read now</Typography>
+              </Button>
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "#2CE080", color: "#03314B" }}
+              >
+                <Typography variant="subtitle1"> Finished Reading </Typography>
+              </Button>
+              <Button variant="text" sx={{ color: "#6D787E" }}>
+                <Typography variant="subtitle1">Send to Kindle</Typography>
+                <ArrowRightAltOutlinedIcon></ArrowRightAltOutlinedIcon>
+              </Button>
+            </Stack>
+          </Stack>
+          <img src={img2} alt="book-img" />
+        </Stack>
+
+        <Stack spacing={2} direction="column" width="600px">
+          <SmallTab
+            value={tabStatus}
+            handleChange={(event: React.SyntheticEvent, value: string) => {
+              event.preventDefault();
+              //console.log(value);
+              handleTabStatus(event, value);
+            }}
+          ></SmallTab>
+
+          <Typography variant="body1">{bookDetailText}</Typography>
+        </Stack>
+      </Stack>
+    </>
+  );
+}
+
+export default BookDetailView;

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import MUITheme from "../MUITheme";
 import { FooterBar } from "../components/organisms/footers/Footer.stories";
 import MyLibraryCurrentlyReading from "../pages/MyLibraryCurrentlyReading";
+import BookDetailView from "../pages/BookDetailView";
 
 function Template() {
   return (
@@ -12,7 +13,8 @@ function Template() {
       <Stack spacing={3} direction="column">
         <Navbar></Navbar>
 
-        <MyLibraryCurrentlyReading></MyLibraryCurrentlyReading>
+        {/* <MyLibraryCurrentlyReading></MyLibraryCurrentlyReading> */}
+        <BookDetailView></BookDetailView>
 
         <FooterBar></FooterBar>
       </Stack>

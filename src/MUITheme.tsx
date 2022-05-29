@@ -7,7 +7,7 @@ const MUITheme = createTheme({
     fontSize: 16,
     h5: { fontWeight: 800, letterSpacing: 1.5 },
     h6: { fontWeight: 500, fontSize: "24px", color: "#0365F2" },
-    subtitle1: { fontWeight: 600, fontSize: "16px" },
+    subtitle1: { fontWeight: 600, fontSize: "16px", textTransform: "none" },
     subtitle2: { fontWeight: 500, fontSize: "16px" },
     body1: { fontWeight: 500, fontSize: "16px" },
     body2: { fontSize: "14px", color: "#6D787E" },
