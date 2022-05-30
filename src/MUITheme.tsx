@@ -5,6 +5,7 @@ const MUITheme = createTheme({
   typography: {
     fontFamily: ["Montserrat", "sans-serif"].join(","),
     fontSize: 16,
+    h4: { fontWeight: 800 },
     h5: { fontWeight: 800, letterSpacing: 1.5 },
     h6: { fontWeight: 500, fontSize: "24px", color: "#0365F2" },
     subtitle1: { fontWeight: 600, fontSize: "16px", textTransform: "none" },

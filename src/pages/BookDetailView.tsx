@@ -110,13 +110,13 @@ function BookDetailView() {
           <Typography variant="body1">{bookDetailText}</Typography>
 
           <Button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/mylibrary")}
             variant="text"
             sx={{ color: "#6D787E" }}
           >
             <ArrowBackIcon></ArrowBackIcon>
             <Typography variant="subtitle1">
-              Back to currently reading
+              Back to My Library
             </Typography>
           </Button>
         </Stack>
