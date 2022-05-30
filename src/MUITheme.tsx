@@ -49,6 +49,12 @@ const MUITheme = createTheme({
           textTransform: "none",
           color: "#0365F2",
         },
+        root: {
+          "&:hover": {
+            backgroundColor: "#26764a",
+            color: "white",
+          },
+        },
       },
     },
   },

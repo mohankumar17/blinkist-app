@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import { LargeTab } from "../components/molecules/tabs/TabsLarge.stories";
 import { ArticleCard } from "../components/molecules/cards/articles/Article.stories";
+import { useNavigate } from "react-router-dom";
 
 import img1 from "./images/1.png";
 import img2 from "./images/2.png";
@@ -120,9 +121,13 @@ let booksList = [
 ];
 
 function MyLibraryCurrentlyReading() {
+  const navigate = useNavigate();
+
   const [tabStatus, setTabStatus] = useState<string>("cr");
 
   const [booksStatus, setReadStatus] = useState<any>(booksList);
+
+  //const [bookDetailStatus, setBookDetailStatus] = useState<string>("cr");
 
   //const [value, setValue] = React.useState("cr");
 
@@ -147,6 +152,11 @@ function MyLibraryCurrentlyReading() {
       //console.log(newStatusList[id - 1]);
       return newStatusList;
     });
+  };
+
+  const handleBookDetailStatus = (id: number) => {
+    //Router
+    navigate("books/" + id);
   };
 
   let currentlyReadingBooks: any = [];
@@ -205,6 +215,15 @@ function MyLibraryCurrentlyReading() {
                 //console.log(id);
                 event.preventDefault();
                 handleBookStatus(id);
+              }}
+              handleDblClick={(
+                event: React.MouseEvent<HTMLButtonElement>,
+                id: number
+              ) => {
+                //console.log(event.target);
+                //console.log(id);
+                event.preventDefault();
+                handleBookDetailStatus(id);
               }}
             ></ArticleCard>
           </Grid>

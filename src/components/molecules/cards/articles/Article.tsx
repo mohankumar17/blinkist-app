@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, CardActionArea } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
@@ -18,6 +18,10 @@ export type ArticleTypes = {
   tot_reads: string;
   isRead: boolean;
   handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void;
+  handleDblClick: (
+    event: React.MouseEvent<HTMLButtonElement>,
+    id: number
+  ) => void;
 };
 
 function Article({
@@ -29,17 +33,20 @@ function Article({
   tot_reads,
   isRead,
   handleClick,
+  handleDblClick,
 }: ArticleTypes) {
   return (
     // <div>
     <Card sx={{ maxWidth: 284 }}>
-      <CardMedia
-        component="img"
-        width="284px"
-        height="282px"
-        image={src}
-        alt="article-img"
-      />
+      <CardActionArea onClick={(event: React.MouseEvent<HTMLButtonElement>) => handleDblClick(event, id)}>
+        <CardMedia
+          component="img"
+          width="284px"
+          height="282px"
+          image={src}
+          alt="article-img"
+        />
+      </CardActionArea>
 
       <CardContent>
         <Typography gutterBottom variant="subtitle1" component="div">

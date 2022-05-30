@@ -3,9 +3,19 @@ import React, { useEffect, useState } from "react";
 import img2 from "./images/2.png";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { SmallTab } from "../components/molecules/tabs/TabSmall.stories";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function BookDetailView() {
+  const navigate = useNavigate();
+
+  const params = useParams();
+  const bookId = params.bookId;
+
+  console.log(bookId);
+
   const [tabStatus, setTabStatus] = useState<string>("snp");
 
   useEffect(() => {
@@ -39,16 +49,20 @@ function BookDetailView() {
       <Stack spacing={2} direction="column">
         <Typography variant="body1">Get the key ideas from</Typography>
         <Stack spacing={4} direction="row" justifyContent="space-between">
-          <Stack spacing={7} direction="column">
+          <Stack spacing={5} direction="column">
             <Stack spacing={1} direction="column">
               <Typography variant="h5">Beyond Entrepreneurship 2.0</Typography>
-              <Typography variant="subtitle2">
+              <Typography component={"span"} variant="subtitle2">
                 Turning Your Business into an Enduring Great Company
               </Typography>
-              <Typography variant="body2">
+              <Typography component={"span"} variant="body2">
                 By Jim Collins and Bill Lazier
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                component={"span"}
+                variant="body2"
+                color="text.secondary"
+              >
                 <Stack direction="row" alignItems="center">
                   <AccessTimeIcon></AccessTimeIcon>
                   15-minute read
@@ -62,7 +76,10 @@ function BookDetailView() {
               justifyContent="space-between"
               spacing={3}
             >
-              <Button variant="outlined" sx={{ color: "#2CE080" }}>
+              <Button
+                variant="outlined"
+                sx={{ color: "#2CE080", borderColor: "#042330" }}
+              >
                 <Typography variant="subtitle1">Read now</Typography>
               </Button>
               <Button
@@ -91,6 +108,17 @@ function BookDetailView() {
           ></SmallTab>
 
           <Typography variant="body1">{bookDetailText}</Typography>
+
+          <Button
+            onClick={() => navigate("/")}
+            variant="text"
+            sx={{ color: "#6D787E" }}
+          >
+            <ArrowBackIcon></ArrowBackIcon>
+            <Typography variant="subtitle1">
+              Back to currently reading
+            </Typography>
+          </Button>
         </Stack>
       </Stack>
     </>

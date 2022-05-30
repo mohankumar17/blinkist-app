@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Stack, Box, Typography } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import "./Footer.css";
 
 type FooterTypes = {
