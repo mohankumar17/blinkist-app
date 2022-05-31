@@ -20,7 +20,7 @@ function ViewArticles({ booksList, handleClick, handleDblClick }: any) {
             authors={eachBook.authors}
             time_to_read={eachBook.time_to_read}
             tot_reads={eachBook.tot_reads}
-            isRead={eachBook.isRead}
+            btnStatus={eachBook.btnStatus}
             handleClick={handleClick}
             handleDblClick={handleDblClick}
           ></ArticleCard>

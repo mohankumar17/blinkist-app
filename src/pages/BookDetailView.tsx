@@ -109,16 +109,25 @@ function BookDetailView() {
 
           <Typography variant="body1">{bookDetailText}</Typography>
 
-          <Button
-            onClick={() => navigate("/mylibrary")}
-            variant="text"
-            sx={{ color: "#6D787E" }}
-          >
-            <ArrowBackIcon></ArrowBackIcon>
-            <Typography variant="subtitle1">
-              Back to My Library
-            </Typography>
-          </Button>
+          <Stack direction="row" spacing={2} justifyContent="space-between">
+            <Button
+              onClick={() => navigate("/mylibrary")}
+              variant="text"
+              sx={{ color: "#6D787E" }}
+            >
+              <ArrowBackIcon></ArrowBackIcon>
+              <Typography variant="subtitle1">Back to My Library</Typography>
+            </Button>
+
+            <Button
+              onClick={() => navigate("/")}
+              variant="text"
+              sx={{ color: "#6D787E" }}
+            >
+              <ArrowBackIcon></ArrowBackIcon>
+              <Typography variant="subtitle1">Back to Home</Typography>
+            </Button>
+          </Stack>
         </Stack>
       </Stack>
     </>

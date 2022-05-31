@@ -9,10 +9,14 @@ function PageContent() {
     <>
       <Routes>
         <Route path="/" element={<HomePage></HomePage>}></Route>
-        <Route path="mylibrary" element={<MyLibraryCurrentlyReading></MyLibraryCurrentlyReading>}>
-        </Route>
-        <Route path="mylibrary/books/:bookId" element={<BookDetailView></BookDetailView>}></Route>
-        
+        <Route
+          path="mylibrary"
+          element={<MyLibraryCurrentlyReading></MyLibraryCurrentlyReading>}
+        ></Route>
+        <Route
+          path="mylibrary/books/:bookId"
+          element={<BookDetailView></BookDetailView>}
+        ></Route>
       </Routes>
     </>
   );

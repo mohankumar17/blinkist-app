@@ -10,6 +10,7 @@ import img8 from "./images/8.png";
 import img9 from "./images/9.png";
 import img10 from "./images/10.png";
 import img11 from "./images/11.png";
+import HomePage from "../../../pages/HomePage";
 
 export type BookFieldsTypes = {
   id: number;
@@ -18,7 +19,7 @@ export type BookFieldsTypes = {
   authors: string;
   time_to_read: string;
   tot_reads: string;
-  isRead: boolean;
+  btnStatus: number;
 };
 
 export type BookListTypes = {
@@ -33,7 +34,7 @@ export let booksList = [
     authors: "Erica Keswin",
     time_to_read: "13-minute read",
     tot_reads: "1.9k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -43,7 +44,7 @@ export let booksList = [
     authors: "Jim Colloins & Bill Lazier",
     time_to_read: "15-minute read",
     tot_reads: "5.3k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -53,7 +54,7 @@ export let booksList = [
     authors: "Trey Gowdy",
     time_to_read: "13-minute read",
     tot_reads: "1.9k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -63,7 +64,7 @@ export let booksList = [
     authors: "Amanda Little",
     time_to_read: "12-minute read",
     tot_reads: "16k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -73,7 +74,7 @@ export let booksList = [
     authors: "Ryan Holiday & Stephen Hansel",
     time_to_read: "13-minute read",
     tot_reads: "1.9k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -83,7 +84,7 @@ export let booksList = [
     authors: "Debbie King",
     time_to_read: "14-minute read",
     tot_reads: "2.6k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -93,7 +94,7 @@ export let booksList = [
     authors: "Noreena Hertz",
     time_to_read: "15-minute read",
     tot_reads: "3.9k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -103,7 +104,7 @@ export let booksList = [
     authors: "Giada De Laurentiis",
     time_to_read: "13-minute read",
     tot_reads: "1.8k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 
   {
@@ -113,7 +114,7 @@ export let booksList = [
     authors: "James Moore",
     time_to_read: "12-minute read",
     tot_reads: "1.5k reads",
-    isRead: false,
+    btnStatus: 0,
   },
   {
     id: 10,
@@ -122,7 +123,7 @@ export let booksList = [
     authors: "Kathleen Shannon & Emily",
     time_to_read: "13-minute read",
     tot_reads: "2.5k reads",
-    isRead: false,
+    btnStatus: 0,
   },
   {
     id: 11,
@@ -131,13 +132,22 @@ export let booksList = [
     authors: "Steve Glaveski",
     time_to_read: "14-minute read",
     tot_reads: "3.4k reads",
-    isRead: false,
+    btnStatus: 0,
   },
 ];
 
-export let crBooks = booksList.filter((eachBook: BookFieldsTypes) => {
+let bookSet = booksList.filter((eachBook: BookFieldsTypes) => {
   return eachBook.id < 10;
 });
+
+let crBooks1 = [];
+
+for (let eachBook = 0; eachBook < bookSet.length; eachBook++) {
+  bookSet[eachBook].btnStatus = 1;
+  crBooks1.push(bookSet[eachBook]);
+}
+
+export let crBooks = crBooks1.map((eachBook: BookFieldsTypes) => eachBook);
 
 export let trendingBooks = [
   booksList[9],

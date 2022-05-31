@@ -1,19 +1,28 @@
 import { Stack, Typography } from "@mui/material";
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import MyLibraryCurrentlyReading from "./MyLibraryCurrentlyReading";
 import { SearchBar } from "../components/molecules/searchbar/SearchBox.stories";
 import ViewArticles from "../components/molecules/cards/views/ViewArticles";
-import {
+import Books, {
   trendingBooks,
   justAddedBooks,
   audioBooks,
+  booksList,
+  BookFieldsTypes,
 } from "../components/atoms/books/Books";
 
+import { user } from "../components/atoms/users/User";
+
 function HomePage() {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const [searchText, setSearchText] = useState<string>("");
+
+  const [orderBookList, setOrderBookList] = useState<Set<number>>(
+    user.orderedBooks
+  );
 
   const searchBooks = (event: any, newValue: string) => {
     newValue = newValue.toLocaleLowerCase();
@@ -48,6 +57,20 @@ function HomePage() {
       }
     );
   }
+
+  const handleBookDetailStatus = (id: number) => {
+    //Routing Navigation
+    navigate("mylibrary/books/" + id);
+  };
+
+  const handleBookOrderStatus = (id: number) => {
+    setOrderBookList((prevOrderedBooks: Set<number>) => {
+      let newOrderedBooks = prevOrderedBooks;
+      newOrderedBooks.add(id);
+      //console.log(orderBookList);
+      return newOrderedBooks;
+    }); 
+  };
 
   return (
     <>
@@ -92,12 +115,15 @@ function HomePage() {
                   id: number
                 ) => {
                   event.preventDefault();
+                  handleBookOrderStatus(id);
+                  
                 }}
                 handleDblClick={(
                   event: React.MouseEvent<HTMLButtonElement>,
                   id: number
                 ) => {
                   event.preventDefault();
+                  handleBookDetailStatus(id);
                 }}
               ></ViewArticles>
             </Stack>

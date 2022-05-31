@@ -2,10 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import { LargeTab } from "../components/molecules/tabs/TabsLarge.stories";
 import { useNavigate } from "react-router-dom";
-import { crBooks } from "../components/atoms/books/Books";
 import ViewArticles from "../components/molecules/cards/views/ViewArticles";
+import { booksList, crBooks } from "../components/atoms/books/Books";
 
 function MyLibraryCurrentlyReading() {
+  // let crBooks = [booksList[0]];
+  // crBooks[0].btnStatus = 1;
+
+  // for (let eachBook = 0; eachBook < booksList.length; eachBook++) {
+  //   if (orderBookList.has(booksList[eachBook].id)) {
+  //     booksList[eachBook].btnStatus = 1;
+  //     crBooks.push(booksList[eachBook]);
+  //   }
+  // }
+
+  // console.log(crBooks);
+
   const navigate = useNavigate();
 
   const [tabStatus, setTabStatus] = useState<string>("cr");
@@ -26,9 +38,11 @@ function MyLibraryCurrentlyReading() {
 
     setReadStatus((prevStatusBooks: any) => {
       let newStatusList = [...prevStatusBooks];
-      newStatusList[id - 1].isRead
-        ? (newStatusList[id - 1].isRead = false)
-        : (newStatusList[id - 1].isRead = true);
+      if (newStatusList[id - 1].btnStatus === 1) {
+        newStatusList[id - 1].btnStatus = 2;
+      } else {
+        newStatusList[id - 1].btnStatus = 1;
+      }
       //console.log(newStatusList[id - 1]);
       return newStatusList;
     });
@@ -44,7 +58,7 @@ function MyLibraryCurrentlyReading() {
   let bookListStatus: any = [];
 
   for (let ind = 0; ind < booksStatus.length; ind++) {
-    if (booksStatus[ind].isRead) {
+    if (booksStatus[ind].btnStatus === 2) {
       finishedBooks.push(booksStatus[ind]);
     } else {
       currentlyReadingBooks.push(booksStatus[ind]);

@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Box, Stack, CardActionArea } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import AddIcon from "@mui/icons-material/Add";
 
 export type ArticleTypes = {
   id: number;
@@ -16,7 +17,7 @@ export type ArticleTypes = {
   authors: string;
   time_to_read: string;
   tot_reads: string;
-  isRead: boolean;
+  btnStatus: number;
   handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void;
   handleDblClick: (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -31,14 +32,26 @@ function Article({
   authors,
   time_to_read,
   tot_reads,
-  isRead,
+  btnStatus,
   handleClick,
   handleDblClick,
 }: ArticleTypes) {
+  let btnStatusText = "Add to library";
+  if (btnStatus === 0) {
+    btnStatusText = "Add to library";
+  } else if (btnStatus === 1) {
+    btnStatusText = "Finished";
+  } else {
+    btnStatusText = "Read again";
+  }
+
   return (
-    // <div>
     <Card sx={{ maxWidth: 284 }}>
-      <CardActionArea onClick={(event: React.MouseEvent<HTMLButtonElement>) => handleDblClick(event, id)}>
+      <CardActionArea
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+          handleDblClick(event, id)
+        }
+      >
         <CardMedia
           component="img"
           width="284px"
@@ -80,19 +93,37 @@ function Article({
         </Stack>
       </CardContent>
 
-      <CardActions>
-        <Button size="small" onClick={(event) => handleClick(event, id)}>
-          {isRead ? "Read again" : "Finished"}
-        </Button>
-      </CardActions>
-
-      <Box sx={{ height: "15px", backgroundColor: "#F1F6F4" }}>
-        <Box
-          sx={{ width: "88px", height: "15px", backgroundColor: "#E1ECFC" }}
-        ></Box>
-      </Box>
+      {btnStatus !== 0 ? (
+        <>
+          <CardActions>
+            <Button size="small" onClick={(event) => handleClick(event, id)}>
+              {btnStatusText}
+            </Button>
+          </CardActions>
+          <Box sx={{ height: "15px", backgroundColor: "#F1F6F4" }}>
+            <Box
+              sx={{
+                width: "88px",
+                height: "15px",
+                backgroundColor: "#E1ECFC",
+              }}
+            ></Box>
+          </Box>
+        </>
+      ) : (
+        <CardActions>
+          <Button
+            fullWidth
+            size="small"
+            onClick={(event) => handleClick(event, id)}
+            sx={{ backgroundColor: "#0365F2", color: "white", height: "52px" }}
+          >
+            <AddIcon></AddIcon>
+            {btnStatusText}
+          </Button>
+        </CardActions>
+      )}
     </Card>
-    // </div>
   );
 }
 
