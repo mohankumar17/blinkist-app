@@ -3,24 +3,25 @@ import { Typography } from "@mui/material";
 import { LargeTab } from "../components/molecules/tabs/TabsLarge.stories";
 import { useNavigate } from "react-router-dom";
 import ViewArticles from "../components/molecules/cards/views/ViewArticles";
-import { booksList, crBooks } from "../components/atoms/books/Books";
+import { booksList } from "../components/atoms/books/Books";
+import { useAppSelector } from "../app/Hooks";
 
 function MyLibraryCurrentlyReading() {
-  // let crBooks = [booksList[0]];
-  // crBooks[0].btnStatus = 1;
-
-  // for (let eachBook = 0; eachBook < booksList.length; eachBook++) {
-  //   if (orderBookList.has(booksList[eachBook].id)) {
-  //     booksList[eachBook].btnStatus = 1;
-  //     crBooks.push(booksList[eachBook]);
-  //   }
-  // }
-
-  // console.log(crBooks);
-
   const navigate = useNavigate();
 
   const [tabStatus, setTabStatus] = useState<string>("cr");
+
+  const bookIds = useAppSelector((state) => state.book.bookIds);
+  //console.log(bookIds);
+
+  let crBooks = [];
+
+  for (let eachBook = 0; eachBook < booksList.length; eachBook++) {
+    if (bookIds.includes(booksList[eachBook].id)) {
+      booksList[eachBook].btnStatus = 1;
+      crBooks.push(booksList[eachBook]);
+    }
+  }
 
   const [booksStatus, setReadStatus] = useState<any>(crBooks);
 
@@ -33,17 +34,25 @@ function MyLibraryCurrentlyReading() {
   };
 
   const handleBookStatus = (id: number) => {
-    //console.log(id);
+    //console.log("****************" + id + "****************");
     //console.log(booksList[id - 1]);
 
     setReadStatus((prevStatusBooks: any) => {
-      let newStatusList = [...prevStatusBooks];
-      if (newStatusList[id - 1].btnStatus === 1) {
-        newStatusList[id - 1].btnStatus = 2;
-      } else {
-        newStatusList[id - 1].btnStatus = 1;
+      let newStatusList: any = [];
+
+      for (let i = 0; i < prevStatusBooks.length; i++) {
+        if (prevStatusBooks[i].id === id) {
+          if (prevStatusBooks[i].btnStatus === 1) {
+            prevStatusBooks[i] = { ...prevStatusBooks[i], btnStatus: 2 };
+          } else {
+            prevStatusBooks[i] = { ...prevStatusBooks[i], btnStatus: 1 };
+          }
+        }
+        newStatusList.push(prevStatusBooks[i]);
       }
-      //console.log(newStatusList[id - 1]);
+
+      //console.log(newStatusList);
+
       return newStatusList;
     });
   };
@@ -86,6 +95,7 @@ function MyLibraryCurrentlyReading() {
 
       <ViewArticles
         booksList={bookListStatus}
+        isHome={false}
         handleClick={(
           event: React.MouseEvent<HTMLButtonElement>,
           id: number

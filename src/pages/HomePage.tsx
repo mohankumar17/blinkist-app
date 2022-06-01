@@ -1,28 +1,34 @@
 import { Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import MyLibraryCurrentlyReading from "./MyLibraryCurrentlyReading";
 import { SearchBar } from "../components/molecules/searchbar/SearchBox.stories";
 import ViewArticles from "../components/molecules/cards/views/ViewArticles";
-import Books, {
+import {
   trendingBooks,
   justAddedBooks,
   audioBooks,
-  booksList,
-  BookFieldsTypes,
 } from "../components/atoms/books/Books";
 
 import { user } from "../components/atoms/users/User";
 
+import { useAppDispatch } from "../app/Hooks";
+import { addToLibrary } from "../features/book/bookSlice";
+
 function HomePage() {
   const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
 
   const [searchText, setSearchText] = useState<string>("");
 
   const [orderBookList, setOrderBookList] = useState<Set<number>>(
     user.orderedBooks
   );
+
+  useEffect(() => {
+    //console.log("Component Mounted/Updated");
+  }, [searchText, orderBookList]);
 
   const searchBooks = (event: any, newValue: string) => {
     newValue = newValue.toLocaleLowerCase();
@@ -64,12 +70,14 @@ function HomePage() {
   };
 
   const handleBookOrderStatus = (id: number) => {
+    navigate("/");
     setOrderBookList((prevOrderedBooks: Set<number>) => {
       let newOrderedBooks = prevOrderedBooks;
       newOrderedBooks.add(id);
-      //console.log(orderBookList);
+      console.log(orderBookList);
       return newOrderedBooks;
-    }); 
+    });
+    dispatch(addToLibrary(id));
   };
 
   return (
@@ -110,13 +118,13 @@ function HomePage() {
               <Typography variant="h5">{eachSection.heading}</Typography>
               <ViewArticles
                 booksList={eachSection.booksList}
+                isHome={true}
                 handleClick={(
                   event: React.MouseEvent<HTMLButtonElement>,
                   id: number
                 ) => {
                   event.preventDefault();
                   handleBookOrderStatus(id);
-                  
                 }}
                 handleDblClick={(
                   event: React.MouseEvent<HTMLButtonElement>,

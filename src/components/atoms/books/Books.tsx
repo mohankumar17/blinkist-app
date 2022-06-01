@@ -10,7 +10,8 @@ import img8 from "./images/8.png";
 import img9 from "./images/9.png";
 import img10 from "./images/10.png";
 import img11 from "./images/11.png";
-import HomePage from "../../../pages/HomePage";
+
+
 
 export type BookFieldsTypes = {
   id: number;
@@ -136,18 +137,22 @@ export let booksList = [
   },
 ];
 
-let bookSet = booksList.filter((eachBook: BookFieldsTypes) => {
-  return eachBook.id < 10;
-});
+// let bookSet = booksList.filter((eachBook: BookFieldsTypes) => {
+//   return eachBook.id < 10;
+// });
 
-let crBooks1 = [];
+// let crBooks1 = [];
 
-for (let eachBook = 0; eachBook < bookSet.length; eachBook++) {
-  bookSet[eachBook].btnStatus = 1;
-  crBooks1.push(bookSet[eachBook]);
-}
+// for (let eachBook = 0; eachBook < bookSet.length; eachBook++) {
+//   bookSet[eachBook].btnStatus = 1;
+//   crBooks1.push(bookSet[eachBook]);
+// }
 
-export let crBooks = crBooks1.map((eachBook: BookFieldsTypes) => eachBook);
+// export let crBooks = crBooks1.map((eachBook: BookFieldsTypes) => eachBook);
+
+
+
+
 
 export let trendingBooks = [
   booksList[9],

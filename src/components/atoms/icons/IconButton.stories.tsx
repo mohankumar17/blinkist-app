@@ -2,6 +2,7 @@ import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { IconButton } from "@mui/material";
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
 export default {
   title: "Atoms/Icons",
@@ -28,5 +29,11 @@ export const DownArrow = ({ open, menuType, handleClick }: clickTypes) => (
     aria-expanded={open ? "true" : undefined}
   >
     <ExpandMoreIcon></ExpandMoreIcon>
+  </IconButton>
+);
+
+export const HamBurger = () => (
+  <IconButton size="small">
+    <MoreHorizOutlinedIcon></MoreHorizOutlinedIcon>
   </IconButton>
 );

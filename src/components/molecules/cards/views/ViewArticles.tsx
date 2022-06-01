@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import { ArticleCard } from "../articles/Article.stories";
 
-function ViewArticles({ booksList, handleClick, handleDblClick }: any) {
+function ViewArticles({ booksList, isHome, handleClick, handleDblClick }: any) {
   return (
     <Grid
       sx={{ paddingTop: "10px" }}
@@ -21,6 +21,7 @@ function ViewArticles({ booksList, handleClick, handleDblClick }: any) {
             time_to_read={eachBook.time_to_read}
             tot_reads={eachBook.tot_reads}
             btnStatus={eachBook.btnStatus}
+            isHome={isHome}
             handleClick={handleClick}
             handleDblClick={handleDblClick}
           ></ArticleCard>

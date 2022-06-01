@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,6 +9,7 @@ import { Box, Stack, CardActionArea } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import AddIcon from "@mui/icons-material/Add";
+import { HamBurger } from "../../../atoms/icons/IconButton.stories";
 
 export type ArticleTypes = {
   id: number;
@@ -18,6 +19,7 @@ export type ArticleTypes = {
   time_to_read: string;
   tot_reads: string;
   btnStatus: number;
+  isHome: boolean;
   handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void;
   handleDblClick: (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -33,6 +35,7 @@ function Article({
   time_to_read,
   tot_reads,
   btnStatus,
+  isHome,
   handleClick,
   handleDblClick,
 }: ArticleTypes) {
@@ -93,7 +96,7 @@ function Article({
         </Stack>
       </CardContent>
 
-      {btnStatus !== 0 ? (
+      {!isHome ? (
         <>
           <CardActions>
             <Button size="small" onClick={(event) => handleClick(event, id)}>
@@ -110,7 +113,7 @@ function Article({
             ></Box>
           </Box>
         </>
-      ) : (
+      ) : btnStatus === 0 ? (
         <CardActions>
           <Button
             fullWidth
@@ -122,6 +125,21 @@ function Article({
             {btnStatusText}
           </Button>
         </CardActions>
+      ) : (
+        <>
+          <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <HamBurger></HamBurger>
+          </CardActions>
+          <Box sx={{ height: "15px", backgroundColor: "#F1F6F4" }}>
+            <Box
+              sx={{
+                width: "88px",
+                height: "15px",
+                backgroundColor: "#E1ECFC",
+              }}
+            ></Box>
+          </Box>
+        </>
       )}
     </Card>
   );
