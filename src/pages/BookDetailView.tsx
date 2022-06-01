@@ -1,20 +1,19 @@
 import { Button, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import img2 from "./images/2.png";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { SmallTab } from "../components/molecules/tabs/TabSmall.stories";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../app/Hooks";
 
 function BookDetailView() {
   const navigate = useNavigate();
 
   const params = useParams();
-  const bookId = params.bookId;
-
-  console.log(bookId);
+  const bookId: any = params.bookId;
+  const id: number = parseInt(bookId);
 
   const [tabStatus, setTabStatus] = useState<string>("snp");
 
@@ -26,6 +25,10 @@ function BookDetailView() {
     //setValue(newValue);
     setTabStatus(newValue);
   };
+
+  const allBooks = useAppSelector((state) => state.book.allBooks);
+
+  const book: any = allBooks[id - 1];
 
   let bookDetail = {
     synopsis:
@@ -51,12 +54,12 @@ function BookDetailView() {
         <Stack spacing={4} direction="row" justifyContent="space-between">
           <Stack spacing={5} direction="column">
             <Stack spacing={1} direction="column">
-              <Typography variant="h5">Beyond Entrepreneurship 2.0</Typography>
+              <Typography variant="h5">{book.title}</Typography>
               <Typography component={"span"} variant="subtitle2">
                 Turning Your Business into an Enduring Great Company
               </Typography>
               <Typography component={"span"} variant="body2">
-                By Jim Collins and Bill Lazier
+                {book.authors}
               </Typography>
               <Typography
                 component={"span"}
@@ -65,7 +68,7 @@ function BookDetailView() {
               >
                 <Stack direction="row" alignItems="center">
                   <AccessTimeIcon></AccessTimeIcon>
-                  15-minute read
+                  {book.time_to_read}
                 </Stack>
               </Typography>
             </Stack>
@@ -94,7 +97,7 @@ function BookDetailView() {
               </Button>
             </Stack>
           </Stack>
-          <img src={img2} alt="book-img" />
+          <img src={book.src} alt="book-img" />
         </Stack>
 
         <Stack spacing={2} direction="column" width="600px">
