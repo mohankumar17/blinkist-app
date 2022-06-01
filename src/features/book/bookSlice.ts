@@ -1,19 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { booksList } from "../../components/atoms/books/Books";
 
 type InitBookStateType = {
-  bookIds: number[];
+  allBooks: any[];
 };
 
 const initialState: InitBookStateType = {
-  bookIds: [],
+  allBooks: booksList,
 };
 
 const bookSlice = createSlice({
   name: "book",
   initialState: initialState,
   reducers: {
-    addToLibrary: (state: InitBookStateType, action: PayloadAction<number>) => {
-      state.bookIds.push(action.payload);
+    addToLibrary: (state: InitBookStateType, action: PayloadAction<number[]>) => {
+      let id = action.payload[0];
+      let newBtnStatus = action.payload[1];
+      state.allBooks[id - 1].btnStatus = newBtnStatus;
     },
   },
 });

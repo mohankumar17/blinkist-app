@@ -137,22 +137,6 @@ export let booksList = [
   },
 ];
 
-// let bookSet = booksList.filter((eachBook: BookFieldsTypes) => {
-//   return eachBook.id < 10;
-// });
-
-// let crBooks1 = [];
-
-// for (let eachBook = 0; eachBook < bookSet.length; eachBook++) {
-//   bookSet[eachBook].btnStatus = 1;
-//   crBooks1.push(bookSet[eachBook]);
-// }
-
-// export let crBooks = crBooks1.map((eachBook: BookFieldsTypes) => eachBook);
-
-
-
-
 
 export let trendingBooks = [
   booksList[9],

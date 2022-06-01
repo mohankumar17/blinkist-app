@@ -1,5 +1,5 @@
 import { Stack, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { SearchBar } from "../components/molecules/searchbar/SearchBox.stories";
@@ -10,8 +10,6 @@ import {
   audioBooks,
 } from "../components/atoms/books/Books";
 
-import { user } from "../components/atoms/users/User";
-
 import { useAppDispatch } from "../app/Hooks";
 import { addToLibrary } from "../features/book/bookSlice";
 
@@ -21,14 +19,6 @@ function HomePage() {
   const dispatch = useAppDispatch();
 
   const [searchText, setSearchText] = useState<string>("");
-
-  const [orderBookList, setOrderBookList] = useState<Set<number>>(
-    user.orderedBooks
-  );
-
-  useEffect(() => {
-    //console.log("Component Mounted/Updated");
-  }, [searchText, orderBookList]);
 
   const searchBooks = (event: any, newValue: string) => {
     newValue = newValue.toLocaleLowerCase();
@@ -70,14 +60,7 @@ function HomePage() {
   };
 
   const handleBookOrderStatus = (id: number) => {
-    navigate("/");
-    setOrderBookList((prevOrderedBooks: Set<number>) => {
-      let newOrderedBooks = prevOrderedBooks;
-      newOrderedBooks.add(id);
-      console.log(orderBookList);
-      return newOrderedBooks;
-    });
-    dispatch(addToLibrary(id));
+    dispatch(addToLibrary([id, 1]));
   };
 
   return (

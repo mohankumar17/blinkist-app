@@ -1,60 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Typography } from "@mui/material";
 import { LargeTab } from "../components/molecules/tabs/TabsLarge.stories";
 import { useNavigate } from "react-router-dom";
 import ViewArticles from "../components/molecules/cards/views/ViewArticles";
-import { booksList } from "../components/atoms/books/Books";
-import { useAppSelector } from "../app/Hooks";
+import { useAppSelector, useAppDispatch } from "../app/Hooks";
+import { addToLibrary } from "../features/book/bookSlice";
 
 function MyLibraryCurrentlyReading() {
   const navigate = useNavigate();
 
   const [tabStatus, setTabStatus] = useState<string>("cr");
-
-  const bookIds = useAppSelector((state) => state.book.bookIds);
-  //console.log(bookIds);
-
-  let crBooks = [];
-
-  for (let eachBook = 0; eachBook < booksList.length; eachBook++) {
-    if (bookIds.includes(booksList[eachBook].id)) {
-      booksList[eachBook].btnStatus = 1;
-      crBooks.push(booksList[eachBook]);
-    }
-  }
-
-  const [booksStatus, setReadStatus] = useState<any>(crBooks);
-
-  useEffect(() => {
-    //console.log("Component Mounted/Updated");
-  }, [tabStatus, booksStatus]);
-
   const handleTabStatus = (event: React.SyntheticEvent, newValue: string) => {
     setTabStatus(newValue);
   };
 
+  const allBooks = useAppSelector((state) => state.book.allBooks);
+  const dispatch = useAppDispatch();
+
   const handleBookStatus = (id: number) => {
-    //console.log("****************" + id + "****************");
-    //console.log(booksList[id - 1]);
-
-    setReadStatus((prevStatusBooks: any) => {
-      let newStatusList: any = [];
-
-      for (let i = 0; i < prevStatusBooks.length; i++) {
-        if (prevStatusBooks[i].id === id) {
-          if (prevStatusBooks[i].btnStatus === 1) {
-            prevStatusBooks[i] = { ...prevStatusBooks[i], btnStatus: 2 };
-          } else {
-            prevStatusBooks[i] = { ...prevStatusBooks[i], btnStatus: 1 };
-          }
-        }
-        newStatusList.push(prevStatusBooks[i]);
-      }
-
-      //console.log(newStatusList);
-
-      return newStatusList;
-    });
+    if (allBooks[id - 1].btnStatus === 1) {
+      dispatch(addToLibrary([id, 2]));
+    }
+    if (allBooks[id - 1].btnStatus === 2) {
+      dispatch(addToLibrary([id, 1]));
+    }
   };
 
   const handleBookDetailStatus = (id: number) => {
@@ -64,20 +33,21 @@ function MyLibraryCurrentlyReading() {
 
   let currentlyReadingBooks: any = [];
   let finishedBooks: any = [];
-  let bookListStatus: any = [];
+  let libBooks: any = [];
 
-  for (let ind = 0; ind < booksStatus.length; ind++) {
-    if (booksStatus[ind].btnStatus === 2) {
-      finishedBooks.push(booksStatus[ind]);
-    } else {
-      currentlyReadingBooks.push(booksStatus[ind]);
+  for (let ind = 0; ind < allBooks.length; ind++) {
+    if (allBooks[ind].btnStatus === 2) {
+      finishedBooks.push(allBooks[ind]);
+    }
+    if (allBooks[ind].btnStatus === 1) {
+      currentlyReadingBooks.push(allBooks[ind]);
     }
   }
 
   if (tabStatus === "cr") {
-    bookListStatus = [...currentlyReadingBooks];
+    libBooks = [...currentlyReadingBooks];
   } else {
-    bookListStatus = [...finishedBooks];
+    libBooks = [...finishedBooks];
   }
 
   return (
@@ -94,7 +64,7 @@ function MyLibraryCurrentlyReading() {
       ></LargeTab>
 
       <ViewArticles
-        booksList={bookListStatus}
+        booksList={libBooks}
         isHome={false}
         handleClick={(
           event: React.MouseEvent<HTMLButtonElement>,
