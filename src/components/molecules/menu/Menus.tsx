@@ -5,6 +5,7 @@ import { DownArrow } from "../../atoms/icons/IconButton.stories";
 import "./Menu.css";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Link from "@mui/material/Link";
 import { MenuBarNavItems } from "../../organisms/menus/MenuBar.stories";
 
 type MenuTypes = {
@@ -34,7 +35,9 @@ function Menus(props: MenuTypes) {
         justifyContent="center"
       >
         <Stack spacing={0.1} direction="row" alignItems="center">
-          <Typography variant="subtitle2">Explore</Typography>
+          <Link underline="hover">
+            <Typography variant="subtitle2" sx={{color: "#03314B"}}>Explore</Typography>
+          </Link>
           <DownArrow
             open={open}
             menuType="explore-menu"
@@ -65,7 +68,6 @@ function Menus(props: MenuTypes) {
             </Box>
           </Menu>
         </Stack>
-        {<div className="hover-line"></div>}
       </Stack>
     );
   } else {

@@ -15,6 +15,14 @@ const MUITheme = createTheme({
   },
 
   components: {
+    MuiLink: {
+      styleOverrides: {
+        underlineHover: {
+          color: "#2ce080",
+        },
+      },
+    },
+
     MuiTabs: {
       styleOverrides: {
         indicator: {
