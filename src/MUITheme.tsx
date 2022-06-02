@@ -60,7 +60,7 @@ const MUITheme = createTheme({
         },
         root: {
           "&:hover": {
-            backgroundColor: "#26764a",
+            backgroundColor: "#0365F2",
             color: "white",
           },
         },

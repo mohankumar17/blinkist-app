@@ -99,7 +99,7 @@ function Article({
       {!isHome ? (
         <>
           <CardActions>
-            <Button size="small" onClick={(event) => handleClick(event, id)}>
+            <Button fullWidth size="small" onClick={(event) => handleClick(event, id)}>
               {btnStatusText}
             </Button>
           </CardActions>
@@ -119,7 +119,7 @@ function Article({
             fullWidth
             size="small"
             onClick={(event) => handleClick(event, id)}
-            sx={{ backgroundColor: "#0365F2", color: "white", height: "52px" }}
+            sx={{ height: "52px" }}
           >
             <AddIcon></AddIcon>
             {btnStatusText}

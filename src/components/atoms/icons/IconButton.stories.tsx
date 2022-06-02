@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
 export default {
-  title: "Atoms/Icons",
+  title: "Atoms/IconButtons",
 };
 
 export type clickTypes = {
