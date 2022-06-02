@@ -32,10 +32,11 @@ function BookDetailView() {
 
   let bookDetail = {
     synopsis:
-      "Beyond Entrepreneurship 2.0 (2020) updates Jim Collins and Bill Laziers essential 1992 business handbook, Beyond Entrepreneurship for the entrepreneurs, visionaries, and innovators of today. This new edition combines the timeless business advice and strategy of the original text, supplemented with cutting-edge insights and case studies pertinent to today’s business world.",
-    for_who: "Students, Business People",
+      "Donec gravida diam cursus arcu euismod tristique. Ut id scelerisque turpis, laoreet vestibulum mauris. Sed non dictum ligula. Vestibulum bibendum tortor vel libero laoreet, eget vehicula urna posuere. Donec dapibus, tellus vel interdum ullamcorper, odio diam fermentum justo, id consectetur augue libero eu sapien. In nec rutrum enim, ut aliquet eros. In in vestibulum neque. Aliquam erat volutpat. Integer interdum malesuada diam at laoreet.",
+    for_who:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nunc massa, dignissim nec molestie id, aliquet eget lorem. Aliquam erat volutpat. Suspendisse potenti. Sed elit velit, pharetra sit amet rutrum vitae, pulvinar sit amet quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     about_author:
-      "James C Jim Collins is an American researcher, author, speaker and consultant focused on the subject of business management and company sustainability and growth",
+      "JCras porttitor lorem ac ex euismod egestas. Phasellus dolor nibh, euismod aliquet orci sit amet, imperdiet sollicitudin diam. Aenean elementum a nibh sed maximus. Sed ex mi, accumsan ut leo at, imperdiet rutrum massa. Quisque ex lorem, lobortis vel hendrerit quis, commodo vitae urna. Vestibulum accumsan enim quam. ",
   };
 
   let bookDetailText;
