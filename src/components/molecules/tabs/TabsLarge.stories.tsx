@@ -1,6 +1,6 @@
 import React from "react";
 import TabsLarge from "./TabsLarge";
-import { TabsTypes } from "./TabsLarge";
+//import { TabsTypes } from "./TabsLarge";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {

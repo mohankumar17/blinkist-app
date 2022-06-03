@@ -1,9 +1,21 @@
-.App {
+/* .App {
   padding: 30px 264px 0 264px;
-}
+} */
 
 .blur {
   background-color: #9da3a673;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+}
+
+#navbar {
+  background-color: white;
+}
+
+#explore-menu {
+  position: absolute;
 }
 
 .App-logo {

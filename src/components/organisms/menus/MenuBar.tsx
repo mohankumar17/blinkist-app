@@ -115,11 +115,9 @@ function MenuBar() {
 
   return (
     <div>
-      <Stack spacing={2} direction="column" width="880px">
+      <Stack spacing={2} direction="column">
         <Stack spacing={5} direction="row" alignItems="center">
-          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "16px" }}>
-            Explore by category
-          </Typography>
+          <Typography variant="h6">Explore by category</Typography>
           <Typography variant="subtitle2">See recently added titles</Typography>
           <Typography variant="subtitle2">See popular titles</Typography>
         </Stack>
@@ -129,7 +127,6 @@ function MenuBar() {
             borderWidth: "1px 0 0 0",
             borderColor: "#042330",
             borderStyle: "solid",
-            width: "940px",
           }}
         ></Box>
 

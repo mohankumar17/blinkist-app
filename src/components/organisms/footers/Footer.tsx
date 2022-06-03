@@ -13,7 +13,7 @@ function Footer({ src }: FooterTypes) {
         spacing={3}
         direction="column"
         alignItems="flex-start"
-        style={{ padding: "38px 0px" }}
+        style={{ padding: "38px 264px", backgroundColor: "#F1F6F4" }}
       >
         <Box sx={{ height: 224 }}>
           <Stack spacing={1} direction="row">
@@ -31,7 +31,7 @@ function Footer({ src }: FooterTypes) {
 
             <Stack spacing={1} direction="row" width="542px">
               <Stack spacing={1} direction="column" width="214px">
-                <Typography variant="subtitle1">Editorial</Typography>
+                <Typography variant="subtitle2">Editorial</Typography>
                 <Typography variant="body2">Book Lists</Typography>
                 <Typography variant="body2">What is Nonfiction?</Typography>
                 <Typography variant="body2">What to read next?</Typography>
@@ -39,7 +39,7 @@ function Footer({ src }: FooterTypes) {
               </Stack>
 
               <Stack spacing={1} direction="column" width="132px">
-                <Typography variant="subtitle1">Useful Links</Typography>
+                <Typography variant="subtitle2">Useful Links</Typography>
                 <Typography variant="body2">Pricing</Typography>
                 <Typography variant="body2">Blinkist Business</Typography>
                 <Typography variant="body2">Gift cards</Typography>
@@ -48,7 +48,7 @@ function Footer({ src }: FooterTypes) {
               </Stack>
 
               <Stack spacing={1} direction="column" width="132px">
-                <Typography variant="subtitle1">Company</Typography>
+                <Typography variant="subtitle2">Company</Typography>
                 <Typography variant="body2">About</Typography>
                 <Typography variant="body2">Careers</Typography>
                 <Typography variant="body2">Partners</Typography>

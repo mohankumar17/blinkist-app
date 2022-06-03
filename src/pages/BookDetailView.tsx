@@ -50,17 +50,17 @@ function BookDetailView() {
 
   return (
     <>
-      <Stack spacing={2} direction="column">
+      <Stack spacing={2} direction="column" sx={{ padding: "0 264px" }}>
         <Typography variant="body1">Get the key ideas from</Typography>
         <Stack spacing={4} direction="row" justifyContent="space-between">
           <Stack spacing={5} direction="column">
             <Stack spacing={1} direction="column">
-              <Typography variant="h5">{book.title}</Typography>
-              <Typography component={"span"} variant="subtitle2">
+              <Typography variant="h4">{book.title}</Typography>
+              <Typography component={"span"} variant="body1">
                 Turning Your Business into an Enduring Great Company
               </Typography>
               <Typography component={"span"} variant="body2">
-                {book.authors}
+                By {book.authors}
               </Typography>
               <Typography
                 component={"span"}
@@ -82,18 +82,18 @@ function BookDetailView() {
             >
               <Button
                 variant="outlined"
-                sx={{ color: "#2CE080", borderColor: "#042330" }}
+                sx={{ color: "#22C870", borderColor: "#042330" }}
               >
-                <Typography variant="subtitle1">Read now</Typography>
+                <Typography variant="body1">Read now</Typography>
               </Button>
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "#2CE080", color: "#03314B" }}
               >
-                <Typography variant="subtitle1"> Finished Reading </Typography>
+                <Typography variant="body1"> Finished Reading </Typography>
               </Button>
               <Button variant="text" sx={{ color: "#6D787E" }}>
-                <Typography variant="subtitle1">Send to Kindle</Typography>
+                <Typography variant="body1">Send to Kindle</Typography>
                 <ArrowRightAltOutlinedIcon></ArrowRightAltOutlinedIcon>
               </Button>
             </Stack>
@@ -120,7 +120,7 @@ function BookDetailView() {
               sx={{ color: "#6D787E" }}
             >
               <ArrowBackIcon></ArrowBackIcon>
-              <Typography variant="subtitle1">Back to My Library</Typography>
+              <Typography variant="body1">Back to My Library</Typography>
             </Button>
 
             <Button
@@ -129,7 +129,7 @@ function BookDetailView() {
               sx={{ color: "#6D787E" }}
             >
               <ArrowBackIcon></ArrowBackIcon>
-              <Typography variant="subtitle1">Back to Home</Typography>
+              <Typography variant="body1">Back to Home</Typography>
             </Button>
           </Stack>
         </Stack>

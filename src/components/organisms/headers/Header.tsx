@@ -13,32 +13,35 @@ type HeaderTypes = {
 function Header(props: HeaderTypes) {
   const navigate = useNavigate();
   return (
-    <Stack
-      spacing={15}
-      direction="row"
-      alignItems="center"
-      justifyContent="space-between"
-    >
-      <Stack spacing={5} direction="row" alignItems="center">
-        <img
-          className="brand-logo"
-          src={props.LogoPath}
-          alt="brand-logo"
-          onClick={() => navigate("/")}
-        />
-        <Search></Search>
-        <ExploreMenu></ExploreMenu>
-        <Link underline="hover">
-          <Typography
-            variant="subtitle2"
-            sx={{ color: "#03314B" }}
-            onClick={() => navigate("mylibrary")}
-          >
-            My Library
-          </Typography>
-        </Link>
+    <Stack id="navbar">
+      <Stack
+        spacing={15}
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{ padding: "30px 264px" }}
+      >
+        <Stack spacing={5} direction="row" alignItems="center">
+          <img
+            className="brand-logo"
+            src={props.LogoPath}
+            alt="brand-logo"
+            onClick={() => navigate("/")}
+          />
+          <Search></Search>
+          <ExploreMenu></ExploreMenu>
+          <Link underline="hover">
+            <Typography
+              variant="subtitle2"
+              sx={{ color: "#03314B" }}
+              onClick={() => navigate("mylibrary")}
+            >
+              My Library
+            </Typography>
+          </Link>
+        </Stack>
+        <AvatarMenu></AvatarMenu>
       </Stack>
-      <AvatarMenu></AvatarMenu>
     </Stack>
   );
 }

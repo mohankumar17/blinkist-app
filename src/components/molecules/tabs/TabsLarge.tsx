@@ -15,6 +15,7 @@ function TabsLarge({ value, handleChange }: TabsTypes) {
 
   return (
     <Tabs
+      sx={{ padding: "30px 0" }}
       value={value}
       onChange={handleChange}
       //onClick={(event) => handleClick(event, value)}

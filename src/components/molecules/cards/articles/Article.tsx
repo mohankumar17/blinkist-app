@@ -65,7 +65,7 @@ function Article({
       </CardActionArea>
 
       <CardContent>
-        <Typography gutterBottom variant="subtitle1" component="div">
+        <Typography gutterBottom variant="subtitle2" component="div">
           {title}
         </Typography>
 

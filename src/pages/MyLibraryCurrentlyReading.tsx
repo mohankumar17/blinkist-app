@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 import { LargeTab } from "../components/molecules/tabs/TabsLarge.stories";
 import { useNavigate } from "react-router-dom";
 import ViewArticles from "../components/molecules/cards/views/ViewArticles";
@@ -51,7 +51,7 @@ function MyLibraryCurrentlyReading() {
   }
 
   return (
-    <>
+    <Stack sx={{ padding: "0 264px" }}>
       <Typography variant="h5">My Library</Typography>
       <LargeTab
         value={tabStatus}
@@ -81,7 +81,7 @@ function MyLibraryCurrentlyReading() {
           handleBookDetailStatus(id);
         }}
       ></ViewArticles>
-    </>
+    </Stack>
   );
 }
 

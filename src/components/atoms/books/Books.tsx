@@ -11,8 +11,6 @@ import img9 from "./images/9.png";
 import img10 from "./images/10.png";
 import img11 from "./images/11.png";
 
-
-
 export type BookFieldsTypes = {
   id: number;
   src: string;

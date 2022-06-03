@@ -12,6 +12,8 @@ type MenuTypes = {
   type: string;
 };
 
+let blurElement = document.getElementById("root") as HTMLElement;
+
 function Menus(props: MenuTypes) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -19,11 +21,13 @@ function Menus(props: MenuTypes) {
     setAnchorEl(event.currentTarget);
   };
 
-  const blurElement = document.getElementById("root") as HTMLElement;
-
   const handleCloseMenu = () => {
     setAnchorEl(null);
     blurElement.classList.remove("blur");
+    let arrowIcon = document.getElementById(
+      "basic-button"
+    ) as HTMLButtonElement;
+    arrowIcon.classList.remove("rotate-icon");
   };
 
   if (props.type === "explore") {
@@ -36,7 +40,9 @@ function Menus(props: MenuTypes) {
       >
         <Stack spacing={0.1} direction="row" alignItems="center">
           <Link underline="hover">
-            <Typography variant="subtitle2" sx={{color: "#03314B"}}>Explore</Typography>
+            <Typography variant="subtitle2" sx={{ color: "#03314B" }}>
+              Explore
+            </Typography>
           </Link>
           <DownArrow
             open={open}
@@ -45,6 +51,10 @@ function Menus(props: MenuTypes) {
               //console.log(event.target);
               handleClickMenu(event);
               blurElement.classList.add("blur");
+              let arrowIcon = document.getElementById(
+                "basic-button"
+              ) as HTMLButtonElement;
+              arrowIcon.classList.add("rotate-icon");
             }}
           ></DownArrow>
 
@@ -59,9 +69,7 @@ function Menus(props: MenuTypes) {
           >
             <Box
               sx={{
-                height: "389px",
-                width: "1500px",
-                padding: "30px 250px 30px 250px",
+                padding: "30px 250px",
               }}
             >
               <MenuBarNavItems></MenuBarNavItems>

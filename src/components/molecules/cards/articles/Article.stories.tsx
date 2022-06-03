@@ -1,6 +1,6 @@
 import React from "react";
 import Article from "./Article";
-import { ArticleTypes } from "./Article";
+// import { ArticleTypes } from "./Article";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
