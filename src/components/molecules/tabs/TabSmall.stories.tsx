@@ -1,6 +1,6 @@
 import React from "react";
 import TabSmall from "./TabSmall";
-import { TabSmallTypes } from "./TabSmall";
+// import { TabSmallTypes } from "./TabSmall";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
