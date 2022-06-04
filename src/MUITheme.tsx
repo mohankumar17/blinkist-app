@@ -5,10 +5,10 @@ const MUITheme = createTheme({
   typography: {
     fontFamily: ["PT Sans", "Montserrat", "sans-serif"].join(","),
     fontSize: 16,
-    h4: { fontWeight: 700, fontSize: "36px", lineHeight: "45PX" },
+    h4: { fontWeight: 700, fontSize: "36px", lineHeight: "45px" },
     h5: { fontWeight: 800, letterSpacing: 1.5 },
     h6: {
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "24px",
       color: "#0365F2",
       lineHeight: "32px",
@@ -51,6 +51,7 @@ const MUITheme = createTheme({
           paddingLeft: "0px",
           fontWeight: 600,
           width: "420px",
+          alignItems: "flex-start",
         },
       },
     },
@@ -89,6 +90,14 @@ const MUITheme = createTheme({
         paper: {
           boxShadow: "none",
           backgroundColor: "#F1F6F4",
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          marginTop: "0px",
+          marginBottom: "0px",
         },
       },
     },

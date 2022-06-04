@@ -7,6 +7,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "@mui/material/Link";
 import { MenuBarNavItems } from "../../organisms/menus/MenuBar.stories";
+import Divider from "@mui/material/Divider";
 
 type MenuTypes = {
   type: string;
@@ -66,6 +67,15 @@ function Menus(props: MenuTypes) {
             MenuListProps={{
               "aria-labelledby": "basic-button",
             }}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            transformOrigin={{ vertical: "top", horizontal: "center" }}
+            PaperProps={{
+              style: {
+                width: "100%",
+                maxWidth: "100%",
+                transform: "translateX(-15px) translateY(30px)",
+              },
+            }}
           >
             <Box
               sx={{
@@ -105,7 +115,9 @@ function Menus(props: MenuTypes) {
           }}
         >
           <MenuItem onClick={handleCloseMenu}>Profile</MenuItem>
+          <Divider />
           <MenuItem onClick={handleCloseMenu}>My account</MenuItem>
+          <Divider />
           <MenuItem onClick={handleCloseMenu}>Logout</MenuItem>
         </Menu>
       </Stack>
