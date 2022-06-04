@@ -136,17 +136,6 @@ export let booksList = [
 ];
 
 
-export let trendingBooks = [
-  booksList[9],
-  booksList[1],
-  booksList[10],
-  booksList[3],
-  booksList[4],
-  booksList[5],
-];
-export let justAddedBooks = [booksList[6], booksList[7], booksList[8]];
-export let audioBooks = [booksList[0], booksList[1], booksList[2]];
-
 function Books() {
   return <></>;
 }

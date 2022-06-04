@@ -99,7 +99,11 @@ function Article({
       {!isHome ? (
         <>
           <CardActions>
-            <Button fullWidth size="small" onClick={(event) => handleClick(event, id)}>
+            <Button
+              fullWidth
+              size="small"
+              onClick={(event) => handleClick(event, id)}
+            >
               {btnStatusText}
             </Button>
           </CardActions>
