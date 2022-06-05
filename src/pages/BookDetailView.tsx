@@ -26,9 +26,19 @@ function BookDetailView() {
     setTabStatus(newValue);
   };
 
+  type BookFieldsTypes = {
+    id: number;
+    src: string;
+    title: string;
+    authors: string;
+    time_to_read: string;
+    tot_reads: string;
+    btnStatus: number;
+  };
+
   const allBooks = useAppSelector((state) => state.book.allBooks);
 
-  const book: any = allBooks[id - 1];
+  const book: BookFieldsTypes = allBooks[id - 1];
 
   let bookDetail = {
     synopsis:

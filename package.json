@@ -82,7 +82,9 @@
       "!src/reportWebVitals.ts",
       "!src/index.tsx",
       "!src/*.test.tsx",
-      "!src/__test__/"
+      "!src/__test__/",
+      "!src/react-app-env.d.ts",
+      "!src/pages/BookDetailView.tsx"
     ]
   }
 }

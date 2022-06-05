@@ -1,14 +1,68 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "../app/store";
 import MyLibraryCurrentlyReading from "../pages/MyLibraryCurrentlyReading";
 import HomePage from "../pages/HomePage";
+import App from "../App";
+import Books from "../components/atoms/books/Books";
+import {
+  Search,
+  DownArrow,
+  HamBurger,
+} from "../components/atoms/icons/IconButton.stories";
 
-test("mylibrary page", () => {
-  render(<MyLibraryCurrentlyReading></MyLibraryCurrentlyReading>);
+test("App rendering", () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    { wrapper: MemoryRouter }
+  );
 });
 
-test("home page", () => {
-  render(<HomePage></HomePage>);
+test("Home Page rendering", () => {
+  render(
+    <Provider store={store}>
+      <HomePage />
+    </Provider>,
+    { wrapper: MemoryRouter }
+  );
+});
+
+test("MyLibrary Page rendering", () => {
+  render(
+    <Provider store={store}>
+      <MyLibraryCurrentlyReading />
+    </Provider>,
+    { wrapper: MemoryRouter }
+  );
+});
+
+
+test("Books loading", () => {
+  render(
+    <Provider store={store}>
+      <Books />
+    </Provider>,
+    { wrapper: MemoryRouter }
+  );
+});
+
+test("Icons loading", () => {
+  render(
+    <Provider store={store}>
+      <Search />
+      <DownArrow open={true} menuType="explore-menu" handleClick={(e)=>console.log(e.target)}/>
+      <DownArrow open={undefined} menuType="explore-menu" handleClick={(e)=>console.log(e.target)}/>
+      <DownArrow open={true} menuType="avatar-menu" handleClick={(e)=>console.log(e.target)}/>
+      <DownArrow open={undefined} menuType="avatar-menu" handleClick={(e)=>console.log(e.target)}/>
+
+      <HamBurger />
+    </Provider>,
+    { wrapper: MemoryRouter }
+  );
 });
 
 /*

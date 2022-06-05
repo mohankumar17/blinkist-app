@@ -9,9 +9,9 @@ export default {
 };
 
 export type clickTypes = {
-  open: boolean;
-  menuType: string;
-  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  open?: boolean;
+  menuType?: string;
+  handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 export const Search = () => (
