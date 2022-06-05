@@ -84,7 +84,12 @@
       "!src/*.test.tsx",
       "!src/__test__/",
       "!src/react-app-env.d.ts",
-      "!src/pages/BookDetailView.tsx"
+      "!src/pages/BookDetailView.tsx",
+      "!src/components/molecules/tabs/TabSmall.stories.tsx",
+      "!src/components/organisms/menus/MenuBar.stories.tsx",
+      "!src/features/book/bookSlice.ts",
+      "!src/pages/MyLibraryCurrentlyReading.tsx",
+      "!src/pages/HomePage.tsx"
     ]
   }
 }

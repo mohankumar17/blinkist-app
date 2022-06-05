@@ -56,6 +56,7 @@ function Article({
         }
       >
         <CardMedia
+          data-testid="bookCardImg"
           component="img"
           width="284px"
           height="282px"
@@ -100,6 +101,7 @@ function Article({
         <>
           <CardActions>
             <Button
+              data-testid="bookCardBtnLib"
               fullWidth
               size="small"
               onClick={(event) => handleClick(event, id)}
@@ -120,6 +122,7 @@ function Article({
       ) : btnStatus === 0 ? (
         <CardActions>
           <Button
+            data-testid="bookCardBtnHome"
             fullWidth
             size="small"
             onClick={(event) => handleClick(event, id)}

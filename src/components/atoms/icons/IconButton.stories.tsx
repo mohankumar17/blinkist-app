@@ -21,6 +21,7 @@ export const Search = () => (
 );
 export const DownArrow = ({ open, menuType, handleClick }: clickTypes) => (
   <IconButton
+    data-testid={menuType}
     size="small"
     onClick={handleClick}
     id="basic-button"

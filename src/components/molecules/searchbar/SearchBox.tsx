@@ -29,6 +29,7 @@ function SearchBox({ value, handleKeyDown }: SearchBoxType) {
               </InputAdornment>
             ),
           }}
+          inputProps={{ "data-testid": "searchbox" }}
           id="standard-basic"
           variant="standard"
           placeholder="Search by title or author"

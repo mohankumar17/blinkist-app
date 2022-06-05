@@ -27,6 +27,7 @@ function Header(props: HeaderTypes) {
             src={props.LogoPath}
             alt="brand-logo"
             onClick={() => navigate("/")}
+            data-testid="brandLogo-click"
           />
           <Search></Search>
           <ExploreMenu></ExploreMenu>
@@ -35,6 +36,7 @@ function Header(props: HeaderTypes) {
               variant="subtitle2"
               sx={{ color: "#03314B" }}
               onClick={() => navigate("mylibrary")}
+              data-testid="myLibrary-click"
             >
               My Library
             </Typography>
